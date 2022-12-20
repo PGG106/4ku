@@ -320,8 +320,8 @@ void generate_piece_moves(Move *const movelist,
         generate_pawn_moves(movelist, num_moves, north(pawns) & ~all, -8);
         generate_pawn_moves(movelist, num_moves, north(north(pawns & 0xFF00ULL) & ~all) & ~all, -16);
     }
-    generate_pawn_moves(movelist, num_moves, nw(pawns) & (pos.colour[1] | pos.ep), -7);
-    generate_pawn_moves(movelist, num_moves, ne(pawns) & (pos.colour[1] | pos.ep), -9);
+    generate_pawn_moves(movelist, num_moves, nw(pawns) & (pos.colour[1] | pos.ep | 255 | 0xFF00000000000000ULL), -7);
+    generate_pawn_moves(movelist, num_moves, ne(pawns) & (pos.colour[1] | pos.ep | 255 | 0xFF00000000000000ULL ), -9);
     generate_piece_moves(movelist, num_moves, pos, Knight, to_mask, knight);
     generate_piece_moves(movelist, num_moves, pos, Bishop, to_mask, bishop);
     generate_piece_moves(movelist, num_moves, pos, Queen, to_mask, bishop);
