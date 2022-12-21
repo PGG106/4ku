@@ -677,7 +677,7 @@ int alphabeta(Position &pos,
         // minify delete off
 
         int score;
-        if (in_qsearch || !moves_evaluated) {
+        if (in_qsearch || !moves_evaluated || piece_on(pos, move.to)!= None) {
         full_window:
             score = -alphabeta(npos,
                                -beta,
