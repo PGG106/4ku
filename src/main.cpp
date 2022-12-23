@@ -695,7 +695,7 @@ int alphabeta(Position &pos,
                                hash_history);
         } else {
             // Late move reduction
-            int reduction = depth > 3 && moves_evaluated > 3 ? 1 + moves_evaluated / 16 + depth / 10 : 0;
+            int reduction = depth > 3 && moves_evaluated > 3 && !in_check ? 1 + moves_evaluated / 16 + depth / 10 : 0;
 
         zero_window:
             score = -alphabeta(npos,
